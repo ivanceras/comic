@@ -41,7 +41,7 @@ fn main() {
             },
             Msg::Add(todo) => {
                 state.entry_box = String::new();
-                let svg = comic::to_svg_with_textsize(&todo, 8.0, 16.0);
+                let svg = comic::to_svg_with_textsize_nooptimization(&todo, 8.0, 16.0);
                 state.todos.push(svg.to_string());
             },
             Msg::Remove => {
@@ -77,9 +77,13 @@ fn main() {
         ))
     };
 
+
+
+
     let render_item = |state: &str| {
         div ((
-            state.to_owned().into_node(),
+            div (( state.to_owned().into_node() )),
+            div (( "hello".into_node() )),
             button ((
                 on("click", |_| Msg::Remove),
                 "Remove".into_node(),

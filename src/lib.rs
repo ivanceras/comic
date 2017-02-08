@@ -20,6 +20,16 @@ pub fn to_svg_with_textsize(input: &str, text_width: f32, text_height: f32) -> S
     svg
 }
 
+pub fn to_svg_with_textsize_nooptimization(input: &str, text_width: f32, text_height: f32) -> SVG {
+    let (svg_memes, updated_input) = memenhancer::get_meme_svg(input, text_width, text_height); 
+    let mut svg = svgbob::to_svg_with_size_nooptimization(&updated_input, text_width, text_height);
+    for meme in svg_memes{
+        let text_node = TextNode::new(meme.to_string());
+        svg.append(text_node);
+    }
+    svg
+}
+
 
 #[test]
 fn test_svg(){
