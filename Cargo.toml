@@ -1,0 +1,10 @@
+[package]
+name = "comic"
+version = "0.1.0"
+authors = ["lee"]
+
+[dependencies]
+svg = "0.5"
+svgbob = {path = "../../ivanceras/svgbobrus/svgbob"}
+domafic = "0.1"
+memenhancer = {path = "../memenhancer"}
