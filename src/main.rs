@@ -1,4 +1,5 @@
 extern crate domafic;
+extern crate comic;
 
 #[cfg(not(target_os = "emscripten"))]
 fn main() {
@@ -40,7 +41,8 @@ fn main() {
             },
             Msg::Add(todo) => {
                 state.entry_box = String::new();
-                state.todos.push(todo);
+                let svg = comic::to_svg_with_textsize(&todo, 8.0, 16.0);
+                state.todos.push(svg.to_string());
             },
             Msg::Remove => {
                 state.todos.remove(keys.next().unwrap());
