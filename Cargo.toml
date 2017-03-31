@@ -5,6 +5,6 @@ authors = ["lee"]
 
 [dependencies]
 svg = "0.5"
-svgbob = {path = "../../ivanceras/svgbobrus/svgbob"}
+svgbob = {path = "../svgbobrus/svgbob"}
 domafic = "0.1"
 memenhancer = {path = "../memenhancer"}

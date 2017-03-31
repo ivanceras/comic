@@ -6,6 +6,11 @@ use svg::node::Node;
 use svg::node::Text as TextNode;
 use svg::node::element::SVG;
 
+
+/// using default text size, 8.0x16.0 px
+pub fn to_svg(input:&str) -> SVG {
+    to_svg_with_textsize(input, 8.0, 16.0)
+}
 ///
 ///    let text_width:f32 = 8.0;
 ///    let text_height:f32 = 16.0;
