@@ -5,7 +5,7 @@ authors = ["Jovansonlee B. Cesar <ivanceras@gmail.com>"]
 description = "Beautify emojis and bob diagrams"
 license = "MIT"
 documentation = "https://docs.rs/comic"
-keywords = ["comics", "emoji", "bob", "svg", "speech", "balloon"]
+keywords = ["comics", "emoji", "bob", "svg", "speech"]
 
 [dependencies]
 svg = "0.5"
