@@ -17,11 +17,12 @@ pub fn to_svg(input:&str) -> SVG {
 ///    let text_height:f32 = 16.0;
 ///
 pub fn to_svg_with_textsize(input: &str, text_width: f32, text_height: f32) -> SVG {
-    let (svg_memes, updated_input) = memenhancer::get_meme_svg(input, text_width, text_height); 
+    let (svg_memes, updated_input, style) = memenhancer::get_meme_svg(input, text_width, text_height); 
     let mut settings = Settings::default();
     settings.set_size(text_width, text_height);
     let grid = Grid::from_str(&updated_input, &settings); 
     let mut svg = grid.get_svg();
+    svg.append(style);
     for meme in svg_memes{
         let text_node = TextNode::new(meme.to_string());
         svg.append(text_node);
@@ -29,18 +30,6 @@ pub fn to_svg_with_textsize(input: &str, text_width: f32, text_height: f32) -> S
     svg
 }
 
-pub fn to_svg_with_textsize_nooptimization(input: &str, text_width: f32, text_height: f32) -> SVG {
-    let (svg_memes, updated_input) = memenhancer::get_meme_svg(input, text_width, text_height); 
-    let mut settings = Settings::default();
-    settings.set_size(text_width, text_height);
-    let grid = Grid::from_str(&updated_input, &settings); 
-    let mut svg = grid.get_svg();
-    for meme in svg_memes{
-        let text_node = TextNode::new(meme.to_string());
-        svg.append(text_node);
-    }
-    svg
-}
 
 
 #[test]
